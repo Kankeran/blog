@@ -1,4 +1,4 @@
-module github.com/Kankeran/blog
+module github.com/Kankeran/blog-service/blog
 
 go 1.19
 
