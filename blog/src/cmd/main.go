@@ -29,6 +29,11 @@ func Wiktror(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 func main() {
 	fmt.Println("Blog run!!!")
+	db := common.ProvideDatabase().Open()
+	err := db.Ping()
+	check(err)
+	fmt.Println("DB Connected!")
+	defer db.Close()
 	router := httprouter.New()
 	router.GET("/", Index)
 	router.GET("/wiktror/:name", Wiktror)
